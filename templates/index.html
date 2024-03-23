@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Volt</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <h1>{{ message }}</h1>
+    <form id="nameForm">
+      <input type="text" id="nameInput" name="name" required />
+      <button type="submit">Submit</button>
+    </form>
+    <a href="{{ url_for('login') }}"><button>Login</button></a>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
