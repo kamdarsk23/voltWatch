@@ -1,10 +1,23 @@
 from flask import Flask, render_template, request, redirect, url_for
+from propelauth_flask import init_auth, current_user
 
 app = Flask(__name__)
+
+auth = init_auth(
+    "https://819084454.propelauthtest.com",
+    "62dd60c6603bce218dafc55b479fe94d09fa07ecbfa95db18ec4843f2a472722ce05372b4ba59a8e1534f00510752d3d"
+)
 
 @app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route("/api/whoami")
+@auth.require_user
+def who_am_i():
+    """This route is protected, current_user is always set"""
+    return {"user_id": current_user.user_id}
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -14,6 +27,10 @@ def login():
         # In a real application, you'd verify the user details here
         return render_template('greet.html', name=user_name)
     return render_template('login.html')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    return render_template('signup.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
