@@ -1,3 +1,4 @@
+#runs flask app
 from config import DevConfig
 from main import create_app
 

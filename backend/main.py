@@ -1,3 +1,4 @@
+#creates flask application
 from flask import Flask
 from flask_restx import Api
 from models import User, Recipe
