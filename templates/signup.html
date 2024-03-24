@@ -44,7 +44,12 @@
       </div>
 
       <!-- **USE ID: "signup-form"** -->
-      <form action="" class="form" id="signup-form">
+      <form
+        action="{{ url_for('signup') }}"
+        method="POST"
+        class="form"
+        id="signup-form"
+      >
         <!-- name  -->
         <div>
           <label for="userName">Name:</label>
