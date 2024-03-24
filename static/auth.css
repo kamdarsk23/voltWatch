@@ -1,0 +1,124 @@
+.heading-register h1 {
+  padding: 3rem;
+}
+
+.form-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 500px;
+  /* margin: auto; */
+  background-color: var(--yellow);
+  padding: 35px;
+  border-radius: 10px;
+}
+
+.form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+.form-grid div:not(.submit-btn) {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.submit-btn {
+  grid-column: 1 / -1; /* Makes it full width */
+  display: flex;
+  justify-content: center;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  justify-self: center;
+  padding: 10px;
+  background-color: var(--white);
+  border: 1px solid var(--black);
+  border-radius: 2px;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(200, 200, 200);
+}
+
+/* input text boxes */
+.form input {
+  font-size: 1rem;
+  padding: 7px;
+}
+
+/* dropdown  */
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 10px blue;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: var(--gray);
+  background-image: none;
+  cursor: pointer;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 14em;
+  height: 2.35em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+/* Arrow */
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: -5px;
+  right: 0;
+  padding: 1em;
+  background-color: #34495e;
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: var(--yellow);
+}
+
+/* login / register instead  */
+.redirect-login {
+  grid-column: 1 / -1; /* Makes it span all columns */
+  overflow: hidden;
+  width: 100%;
+  text-align: center; /* Optional: to center the text inside the div */
+}
+
+.redirect-login a {
+  color: var(--gray);
+}
+
+.redirect-login a:active {
+  color: var(--white);
+}
