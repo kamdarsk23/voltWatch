@@ -1,4 +1,24 @@
+:root {
+  --bg: #f1f2ee;
+  --text: #9a9a12;
+  --heading: #cd9257;
+  --yellow: #fca311;
+  --white: #f1f2ee;
+  --gray: #435058;
+  --black: #171a21;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: sans-serif;
-  margin: 20px;
+  background-color: var(--bg);
+  font-family: "Montserrat", sans-serif;
 }
