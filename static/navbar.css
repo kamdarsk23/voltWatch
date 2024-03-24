@@ -1,0 +1,164 @@
+#navbar {
+  padding: 0.5rem 40px;
+  width: 100%;
+  font-size: 1.25rem;
+  position: absolute;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+}
+
+/* nav gradient */
+
+#navbar > #nav-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+#navbar #nav-div .left-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+#navbar #nav-div .left-nav #logo {
+  user-select: none;
+}
+
+#navbar #nav-div .left-nav .logo a,
+#navbar #nav-div .left-nav a,
+#navbar #nav-div .right-nav a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 500;
+}
+
+#navbar #nav-div a:hover {
+  color: var(--gray);
+}
+
+#navbar #nav-div .right-nav .button {
+  border: none;
+  outline: none;
+  font-family: "Open Sans", sans-serif;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.35rem 1.25rem;
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 600;
+  background-color: var(--white);
+  transition: 0.3s ease;
+}
+
+#navbar #nav-div .button:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+  color: var(--white);
+}
+
+/* footer  */
+
+footer {
+  height: 300px;
+  padding: 2rem;
+  background-color: var(--teal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+footer .footer-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: no-wrap;
+  width: 100%;
+  max-width: 1200px;
+  line-height: 2rem;
+}
+
+footer .footer-top h4 {
+  color: var(--gray);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+/* left footer  */
+
+footer .footer-left {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .footer-top .footer-left a,
+footer .footer-top .footer-right a {
+  color: var(--gray);
+  text-decoration: none;
+}
+
+/* middle footer  */
+
+footer .footer-top .footer-middle {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .footer-top .footer-middle .socials-container {
+  display: flex;
+  margin-top: 5px;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+footer .footer-top .footer-middle img {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* right footer  */
+
+.footer-top .footer-right {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.footer-top .footer-left a:hover,
+.footer-top .footer-right a:hover {
+  color: var(--red);
+}
+
+.footer-top .footer-left,
+.footer-top .footer-middle,
+.footer-top .footer-right {
+  min-width: calc(100% / 3);
+}
+
+footer .footer-bottom {
+  margin-top: 1rem;
+  padding: 5px;
+  height: 2rem;
+}
+
+/* Footer container styling */
+.footer-top {
+  display: flex;
+  justify-content: center; /* Horizontally center the child divs */
+  text-align: center; /* Center the text inside the child divs */
+}
+
+/* Individual column styling */
+.footer-top .footer-left,
+.footer-top .footer-middle,
+.footer-top .footer-right {
+  min-width: calc(100% / 3); /* Distribute the width equally */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align the content of each column */
+}
