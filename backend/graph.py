@@ -42,7 +42,7 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 from datetime import datetime
 
-cred = credentials.Certificate("C:\\Users\\rahil\\Documents\\voltWatch\\cred\\cred_voltWatch.json")
+cred = credentials.Certificate("private/voltwatch2-firebase-adminsdk-s8gn6-5bd0e27e3a.json")
 firebase_admin.initialize_app(cred)
 
 app = Flask(__name__)

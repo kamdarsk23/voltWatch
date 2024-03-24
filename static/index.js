@@ -5,46 +5,18 @@ console.log("running index.js on frontend");
 
 const ctx5 = document.getElementById("canvas5");
 
-new Chart(ctx5, {
-  type: "line",
-  data: {
-    labels: ["01", "02", "03", "04", "05", "06"],
-    datasets: [
-      {
-        label: "Consumed",
-        data: [1, 19, 3, 5, 2, 3],
-        borderWidth: 1,
-        fill: true,
-        backgroundColor: "#2f93a270",
-        tension: 0.3,
-      },
-      {
-        label: "Produced",
-        data: [10, 5, 11, 6, 9, 2],
-        borderWidth: 1,
-        fill: true,
-        backgroundColor: "#04318b6e",
-        tension: 0.5,
-      },
-    ],
-  },
-  options: {
-    maintainAspectRatio: false,
+function generateArraySkippingFive() {
+  let array = [];
+  for (let i = 1; i <= 700; i++) {
+    array.push(i);
+  }
+  return array;
+}
 
-    scales: {
-      y: {
-        display: false,
-        beginAtZero: true,
-        grid: {
-          display: false,
-        },
-      },
-    },
-  },
-});
+const labels = generateArraySkippingFive();
 
 // fetch data
-fetch("/get-data")
+fetch("/get-data/aaron@gmail.com")
   .then((response) => {
     if (!response.ok) {
       throw new Error("Network response was not ok " + response.statusText);
@@ -53,7 +25,67 @@ fetch("/get-data")
   })
   .then((data) => {
     console.log(data);
-    document.getElementById("someElement").textContent = data.name;
+    // res was ok
+    // create chart
+    // Arrays to hold the extracted values
+    let key1Array = [];
+    let key2Array = [];
+
+    // Using forEach to iterate over the array
+    data.forEach((item) => {
+      key1Array.push(item["consumption"]);
+      key2Array.push(item["production"]);
+    });
+
+    console.log(key1Array);
+    console.log(key2Array);
+
+    const lastItem = [
+      key1Array[key1Array.length - 1],
+      key2Array[key2Array.length - 1],
+    ];
+    console.log(lastItem);
+    document.getElementById("pred-output").innerText = lastItem[1] + " kW/h";
+    document.getElementById("pred-cons").innerText = lastItem[0] + " kW/h";
+    document.getElementById("current-prod").innerText = lastItem[1] + " kW/h";
+    new Chart(ctx5, {
+      type: "line",
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Consumed",
+            data: key1Array,
+            borderWidth: 1,
+            fill: true,
+            backgroundColor: "#2f93a270",
+            tension: 0.3,
+          },
+          {
+            label: "Produced",
+            data: key2Array,
+            borderWidth: 1,
+            fill: true,
+            backgroundColor: "#04318b6e",
+            tension: 0.5,
+          },
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+
+        scales: {
+          y: {
+            display: false,
+            beginAtZero: true,
+            grid: {
+              display: false,
+            },
+          },
+        },
+      },
+    });
+    // document.getElementById("someElement").textContent = data.name;
   })
   .catch((error) => {
     console.error("There has been a problem with your fetch operation:", error);

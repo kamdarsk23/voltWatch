@@ -6,7 +6,7 @@ from firebase_admin import auth
 import json
 import requests
 
-cred = credentials.Certificate("private/voltwatch-1b0a2-firebase-adminsdk-gri4l-581110b69c.json")
+cred = credentials.Certificate("private/voltwatch2-firebase-adminsdk-s8gn6-5bd0e27e3a.json")
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -76,7 +76,7 @@ def login():
         print("submitted password = " + password)
         # note: uses "name" HTML attribute to pull data
         payload = json.dumps({"email": email, "password": password})
-        rest_api_url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD5t6c_VAl-LPPuCRVpT3ideiDDAhz7M_I"
+        rest_api_url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyARWJaT9XwXvPryLn9v15oezFJ7VphnWBE"
         r = requests.post(rest_api_url, data=payload)
         print(r.json()['email'])
         # print(user['localId'])
@@ -111,7 +111,7 @@ def signup():
             print("email already in use")
 
         payload = json.dumps({"email": email, "password": password})
-        rest_api_url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD5t6c_VAl-LPPuCRVpT3ideiDDAhz7M_I"
+        rest_api_url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyARWJaT9XwXvPryLn9v15oezFJ7VphnWBE"
         r = requests.post(rest_api_url, data=payload)
         print(r.json())
 
@@ -126,30 +126,47 @@ def dashboard():
     # Dashboard page logic
     return render_template('dashboard.html')
 
+# text = open('email.txt', 'r')
+# email = text.read()
+# data = []
+# def assembleDataSet():
+#     users_ref = db.collection('users')
+#     query_ref = users_ref.where('email', '==', email)
+#     users = query_ref.stream()
+#     for user in users:
+#         uid = user.id
+#     today = date.today()
+#     collections = db.collection('users').document(f'{uid}').collections()
+#     for col in collections:
+#         data.append(col)
+
+#     print(data)
+
+
+
+from datetime import datetime
 text = open('email.txt', 'r')
 email = text.read()
-data = []
-def assembleDataSet():
-    users_ref = db.collection('users')
-    query_ref = users_ref.where('email', '==', email)
-    users = query_ref.stream()
-    for user in users:
-        uid = user.id
-    today = date.today()
-    collections = db.collection('users').document(f'{uid}').collections()
-    for col in collections:
-        data.append(col)
+@app.route('/get-data/<email>')
+def get_data(email):
+    data = []
+    users_ref = firestore.client().collection('users')
+    user = users_ref.where('email', '==', email).get()
 
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+    
+
+    for u in user:
+        uid = u.id
+        collections = users_ref.document(uid).collection(str(datetime.now().year) +
+        '-' + str(datetime.now().month) + '-' + str(datetime.now().day)).stream()
+        for doc in collections:
+            data.append(doc.to_dict())
     print(data)
-
-@app.route('/get-data')
-def get_data():
-    print(jsonify(data))
     return jsonify(data)
 
 if __name__ == "__main__":
-    app.run(debug = True)
-    
-
-if __name__ == "__main__":
     app.run(debug=True)
+
+
