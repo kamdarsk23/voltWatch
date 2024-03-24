@@ -10,6 +10,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 import matplotlib.pyplot as plt
+from server.weather_output.mlp import predictSolar, modelMaker
 
 
 def get_data():
@@ -122,11 +123,13 @@ def update_vals(model):
             day_prediction = model.predict(np.array([[scaled_data[len(scaled_data) - 1]]]))
             day_prediction = scaler.inverse_transform(day_prediction)
             print(day_prediction)
+            solar_prediction = predictSolar(modelMaker())
             db.collection('users').document(doc.id).update(
                 {
                     'dateUpdated': datetime.now(),
                     'maxConsumption': int(day_prediction[0][0]),
-                    'averageConsumption': int(day_prediction[0][1])
+                    'averageConsumption': int(day_prediction[0][1]),
+                    'solarProduction': int(solar_prediction)
                 }
             )
 
