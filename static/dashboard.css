@@ -1,4 +1,4 @@
-.dashboard-container {
+/* .dashboard-container {
   width: 100%;
   height: 100vh;
 }
@@ -7,4 +7,120 @@
   width: 100%;
   height: 100%;
   background-color: red;
+} */
+
+/* dashboard styles  */
+#navbar {
+  top: 0;
+}
+/* 
+body {
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+} */
+
+.dashboard-container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.main-dashboard {
+  width: 100%;
+  max-width: 1200px;
+  height: 80vmin;
+  background-color: transparent;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 2vmin;
+
+  grid-template-areas:
+    "A A B C"
+    "E E E E"
+    "E E E E"
+    "E E E E";
+}
+
+.main-dashboard > div {
+  background-color: white;
+  border-radius: 1vmin;
+  padding: 3vmin;
+  box-shadow: 0px 1px 1px 0px #00000036, 0px 8px 20px 0px #00000033;
+}
+
+.sectionA {
+  grid-area: A;
+}
+.main-dashboard canvas {
+  height: 100%;
+  width: 20px;
+}
+.sectionB {
+  grid-area: B;
+}
+
+.sectionC {
+  grid-area: C;
+}
+
+.sectionD {
+  grid-area: D;
+}
+.sectionE {
+  grid-area: E;
+}
+.sectionF {
+  grid-area: F;
+}
+.sectionG {
+  grid-area: G;
+}
+.sectionH {
+  grid-area: H;
+}
+.sectionI {
+  grid-area: I;
+}
+.sectionJ {
+  grid-area: J;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--black);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.profit-loss-num {
+  color: var(--gray);
+  font-size: 1rem;
+}
+
+.section-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 0.3rem;
+}
+
+.section1-container {
+  display: flex;
+  justify-content: space-around;
 }
