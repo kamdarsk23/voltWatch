@@ -8,6 +8,7 @@ import openmeteo_requests
 import requests_cache
 import pandas as pd
 from retry_requests import retry
+import os
 
 
 def predictSolar(model):
@@ -59,7 +60,8 @@ def predictSolar(model):
 
 
 def modelMaker():
-    with open('train.csv', mode='r') as file:
+    print(os.getcwd())
+    with open('weather_output\\train.csv', mode='r') as file:
         csvFile = csv.reader(file)
         data = list(csvFile)
 

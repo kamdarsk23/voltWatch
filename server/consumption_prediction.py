@@ -9,8 +9,8 @@ from sklearn.metrics import root_mean_squared_error
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-import matplotlib.pyplot as plt
-from server.weather_output.mlp import predictSolar, modelMaker
+# import matplotlib.pyplot as plt
+from weather_output.mlp import predictSolar, modelMaker
 
 
 def get_data():
