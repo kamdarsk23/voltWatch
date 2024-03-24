@@ -3,14 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log In</title>
+    <title>VoltWatch - Login</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/navbar.css" />
+    <link rel="stylesheet" href="/static/auth.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    welcome to the login page
-    <br>
-    If you don't have an account sign up here:
-    <br>
-    <a href="{{ url_for('signup') }}"><button>Signup</button></a>
+    <!-- navbar  -->
+    <nav id="navbar">
+      <div id="nav-div">
+        <div class="left-nav">
+          <div class="logo">
+            <a href="."
+              ><img
+                src="{{ url_for('static', filename='assets/logo.png') }}"
+                alt="logo"
+                width="50"
+            /></a>
+          </div>
+          <a href="/">Home</a>
+          <a href="#features">Features</a>
+        </div>
+        <div class="right-nav">
+          <a href="{{ 'signup' }}" class="button">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- login form  -->
+    <div class="form-container">
+      <div class="heading-register">
+        <h1>Log in</h1>
+      </div>
+
+      <!-- **USE ID: "login-form"**  -->
+      <form action="" class="form" id="login-form">
+        <!-- email  -->
+        <div>
+          <label for="userEmail">Email:</label>
+          <input type="email" id="userEmail" name="email" />
+        </div>
+        <!-- password  -->
+        <div>
+          <label for="userPassword">Password:</label>
+          <input type="password" id="userPassword" name="password" />
+        </div>
+        <div class="submit-btn">
+          <input type="submit" value="Log In" />
+        </div>
+
+        <!-- login instead  -->
+        <div class="redirect-login">
+          <a href="{{ url_for('signup') }}">New? Sign Up</a>
+        </div>
+      </form>
+    </div>
+
     <script src="/static/script.js"></script>
   </body>
 </html>

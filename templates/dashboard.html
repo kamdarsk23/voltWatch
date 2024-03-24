@@ -3,7 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>VoltWatch - Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/navbar.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>this after login</body>
+  <body>
+    <!-- navbar  -->
+    <nav id="navbar">
+      <div id="nav-div">
+        <div class="left-nav">
+          <div class="logo">
+            <a href="."
+              ><img
+                src="{{ url_for('static', filename='assets/logo.png') }}"
+                alt="logo"
+                width="50"
+            /></a>
+          </div>
+          <a href="/">Home</a>
+          <a href="#features">Features</a>
+        </div>
+        <div class="right-nav">
+          <a href="{{ 'login' }}" class="button">Log in</a>
+        </div>
+      </div>
+    </nav>
+  </body>
 </html>

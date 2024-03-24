@@ -3,21 +3,137 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Volt</title>
+    <title>VoltWatch</title>
     <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/home.css" />
+    <link rel="stylesheet" href="/static/navbar.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-      <div id="display-when-logged-out">
-        <p>You are not logged in</p>
-        <button id="signup">Sign Up</button>
-        <button id="login">Login</button>
+    <!-- navbar  -->
+    <nav id="navbar">
+      <div id="nav-div">
+        <div class="left-nav">
+          <div class="logo">
+            <a href="."
+              ><img
+                src="{{ url_for('static', filename='assets/logo.png') }}"
+                alt="logo"
+                width="50"
+            /></a>
+          </div>
+          <a href="/">Home</a>
+          <a href="#features">Features</a>
+        </div>
+        <div class="right-nav">
+          <a href="login" class="button">Log in</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero  -->
+    <div class="hero-container">
+      <div class="hero">
+        <!-- left side  -->
+        <div class="hero-left">
+          <div id="hero-center-text">
+            <h1 id="hero-h1">Monitor, Envision, Optimize: VoltWatch</h1>
+
+            <div class="btn-holder">
+              <!-- button  -->
+              <a
+                href="{{ 'signup' }}"
+                id="btn"
+                class="getStarted-btn btn-effect hover-slide-right"
+              >
+                <span>Get started</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- right side  -->
+        <div class="hero-right"></div>
+      </div>
     </div>
-    <div id="display-when-logged-in">
-        <p>You are logged in <span id="email"></span></p>
-        <button id="account">Account</button>
-        <button id="logout">Logout</button>
-    </div>
-    
+
+    <!-- about us  -->
+    <section id="features">
+      <div class="features-container">
+        <div class="features-top">
+          <h2>Key Features of VoltWatch</h2>
+        </div>
+        <div class="features-bottom">
+          <div class="features-left">
+            <h3>How We Help</h3>
+            <ul>
+              <li>View current energy produced</li>
+              <li>View current energy consumed</li>
+              <li>
+                Future energy generation predictions with weather patterns
+              </li>
+              <li>Chatbot that provides tips on how to save energy</li>
+              <li>Graph showing energy consumption and production</li>
+              <li>Net gain/loss for the cost of energy</li>
+            </ul>
+          </div>
+          <div class="features-right">
+            right side this side has screenshot of dashboard
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer  -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-left">
+          <h4>Dashboard</h4>
+          <a href="{{ 'signup' }}">Sign Up</a>
+          <a href="{{ 'login' }}">Login</a>
+        </div>
+        <div class="footer-middle">
+          <h4>Socials</h4>
+          <div class="socials-container">
+            <a href="#"
+              ><img
+                src="{{ url_for('static', filename='assets/facebook.png') }}"
+                alt="facebook icon"
+            /></a>
+            <a href="#"
+              ><img
+                src="{{ url_for('static', filename='assets/twitter.png') }}"
+                alt="twitter icon"
+            /></a>
+            <a href="#"
+              ><img
+                src="{{ url_for('static', filename='assets/instagram.png') }}"
+                alt="instagram icon"
+            /></a>
+            <a href="#"
+              ><img
+                src="{{ url_for('static', filename='assets/youtube.png') }}"
+                alt="youtube icon"
+            /></a>
+          </div>
+        </div>
+        <div class="footer-right">
+          <h4>Quick Links</h4>
+          <a href="/">Home</a>
+          <a href="#meet">Features</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy 2024 VoltWatch. All Rights Reserved.
+      </div>
+    </footer>
+
+    <!-- <a href="{{ url_for('login') }}"><button>Log In</button></a> -->
     <script src="../static/index.js" type="module"></script>
   </body>
 </html>
