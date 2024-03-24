@@ -3,6 +3,9 @@ from flask import Flask, render_template, request, redirect, url_for
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+from firebase_admin import auth
+import json
+import requests
 
 cred = credentials.Certificate("private/voltwatch-1b0a2-firebase-adminsdk-gri4l-581110b69c.json")
 firebase_admin.initialize_app(cred)
@@ -73,8 +76,14 @@ def login():
         print("submitted email = " + email)
         print("submitted password = " + password)
         # note: uses "name" HTML attribute to pull data
-
-
+        payload = json.dumps({"email": email, "password": password})
+        rest_api_url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD5t6c_VAl-LPPuCRVpT3ideiDDAhz7M_I"
+        r = requests.post(rest_api_url, data=payload)
+        print(r.json()['email'])
+        # print(user['localId'])
+        with open('email.txt', 'w') as file:
+            # Write content to the file
+            file.write(r.json()['email'])
         # assuming auth, send to dashboard 
         return redirect(url_for('dashboard'))
     elif request.method == 'GET':
@@ -101,6 +110,12 @@ def signup():
             updateDb(name, address, avgConsumption, None, email, maxConsumption, phone, solarConsumption, provider)
         else:
             print("email already in use")
+
+        payload = json.dumps({"email": email, "password": password})
+        rest_api_url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD5t6c_VAl-LPPuCRVpT3ideiDDAhz7M_I"
+        r = requests.post(rest_api_url, data=payload)
+        print(r.json())
+
         # assume valid, send to login
         return redirect(url_for('login'))
     elif request.method == 'GET':
