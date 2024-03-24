@@ -1,0 +1,146 @@
+/* hero section  */
+
+.hero-container {
+  height: 100vh;
+}
+
+.hero {
+  width: 100%;
+  height: 100%;
+  background: url("/static/assets/hero.png") no-repeat;
+  background-position: center right;
+  background-size: 55%;
+  background-attachment: fixed;
+  display: flex;
+}
+
+/* hero left / right section  */
+
+.hero .hero-left {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+}
+
+.hero .hero-right {
+  height: 100%;
+  width: 50%;
+}
+
+#hero-center-text {
+  width: 60%;
+}
+
+#hero-h1 {
+  font-size: 2.5rem;
+  color: var(--heading);
+  font-weight: 700;
+
+  margin-bottom: 40px;
+}
+
+/*--- get started button ---*/
+.getStarted-btn {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  min-width: 150px;
+  transition: 0.2s ease-in-out;
+}
+
+.getStarted-btn:hover {
+  background-color: var(--yellow);
+}
+
+.getStarted-btn span {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 20px;
+  transition: 0.3s;
+}
+
+.btn-holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 1000px;
+}
+
+/*--- btn-effect ---*/
+.btn-effect span {
+  color: rgb(28, 31, 30);
+  border: 1px solid rgb(28, 31, 30);
+  transition: 0.2s;
+}
+.btn-effect span:hover {
+  color: var(--white);
+  transition: 0.2s 0.1s;
+}
+
+/* features section  */
+
+#features {
+  height: 100vh;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+}
+
+.features-container {
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.features-top {
+  height: 20%;
+  /* background-color: blue; */
+  display: grid;
+  place-items: center;
+}
+
+.features-bottom {
+  height: 80%;
+  display: flex;
+}
+
+.features-left,
+.features-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.features-left h3 {
+  padding: 2rem;
+  font-size: 1.35rem;
+}
+
+.features-left li {
+  padding: 6px;
+  font-size: 1.125rem;
+}
+
+#features h2 {
+  font-size: 2rem;
+}
