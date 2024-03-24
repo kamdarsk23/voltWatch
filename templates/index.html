@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
-    <h1>{{ message }}</h1>
-    <form id="nameForm">
-      <input type="text" id="nameInput" name="name" required />
-      <button type="submit">Submit</button>
-    </form>
-    <a href="{{ url_for('login') }}"><button>Login</button></a>
-    <script src="/static/script.js"></script>
+      <div id="display-when-logged-out">
+        <p>You are not logged in</p>
+        <button id="signup">Sign Up</button>
+        <button id="login">Login</button>
+    </div>
+    <div id="display-when-logged-in">
+        <p>You are logged in <span id="email"></span></p>
+        <button id="account">Account</button>
+        <button id="logout">Logout</button>
+    </div>
+    
+    <script src="../static/index.js" type="module"></script>
   </body>
 </html>

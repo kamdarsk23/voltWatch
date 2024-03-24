@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@propelauth/javascript": "^2.0.14"
+  }
+}
