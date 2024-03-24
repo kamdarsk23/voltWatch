@@ -29,15 +29,94 @@
           <a href="#features">Features</a>
         </div>
         <div class="right-nav">
-          <a href="{{ 'login' }}" class="button">Log in</a>
+          <a href="{{ 'logout' }}" class="button">Log Out</a>
         </div>
       </div>
     </nav>
 
-    <div class="dashboard-container">
+    <!-- <div class="dashboard-container">
       <div class="dashboard">
         <h1>Dashboard</h1>
       </div>
+    </div> -->
+    <div class="dashboard-container">
+      <div class="main-dashboard">
+        <div id="grafico1" class="sectionA">
+          <div class="section1-container">
+            <div class="sec1-left">
+              <div class="text">Predicted Output</div>
+              <div class="predicted-output">123 kW/h</div>
+            </div>
+            <div class="sec1-right">
+              <div class="text">Predicted Consumption</div>
+              <div class="predicted-consumption">200 kW/h</div>
+            </div>
+          </div>
+        </div>
+        <div id="grafico2" class="sectionB">
+          <div class="section-text">
+            <div class="cur-prod-text text">Current Production</div>
+            <div class="cur-prod">255 kW/h</div>
+          </div>
+        </div>
+        <div id="grafico3" class="sectionC">
+          <div class="section-text text">
+            <div class="profit-loss">Profit / Loss</div>
+            <div class="profit-loss-num">+$5.21</div>
+          </div>
+        </div>
+
+        <div id="grafico5" class="sectionE">
+          <canvas id="canvas5"></canvas>
+        </div>
+      </div>
     </div>
+
+    <!-- footer  -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-left">
+          <h4>Dashboard</h4>
+          <a href="{{ 'signup' }}">Sign Up</a>
+          <a href="{{ 'login' }}">Login</a>
+        </div>
+        <div class="footer-middle">
+          <h4>Socials</h4>
+          <div class="socials-container">
+            <a href="#"
+              ><img
+                src="{{ url_for('static', filename='assets/facebook.png') }}"
+                alt="facebook icon"
+            /></a>
+            <a href="#"
+              ><img
+                src="{{ url_for('static', filename='assets/twitter.png') }}"
+                alt="twitter icon"
+            /></a>
+            <a href="#"
+              ><img
+                src="{{ url_for('static', filename='assets/instagram.png') }}"
+                alt="instagram icon"
+            /></a>
+            <a href="#"
+              ><img
+                src="{{ url_for('static', filename='assets/youtube.png') }}"
+                alt="youtube icon"
+            /></a>
+          </div>
+        </div>
+        <div class="footer-right">
+          <h4>Quick Links</h4>
+          <a href="/">Home</a>
+          <a href="#meet">Features</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy 2024 VoltWatch. All Rights Reserved.
+      </div>
+    </footer>
+
+    <script src="../static/index.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </body>
 </html>

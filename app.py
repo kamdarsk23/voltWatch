@@ -1,5 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
-
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
@@ -126,6 +125,31 @@ def signup():
 def dashboard():
     # Dashboard page logic
     return render_template('dashboard.html')
+
+text = open('email.txt', 'r')
+email = text.read()
+data = []
+def assembleDataSet():
+    users_ref = db.collection('users')
+    query_ref = users_ref.where('email', '==', email)
+    users = query_ref.stream()
+    for user in users:
+        uid = user.id
+    today = date.today()
+    collections = db.collection('users').document(f'{uid}').collections()
+    for col in collections:
+        data.append(col)
+
+    print(data)
+
+@app.route('/get-data')
+def get_data():
+    print(jsonify(data))
+    return jsonify(data)
+
+if __name__ == "__main__":
+    app.run(debug = True)
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
