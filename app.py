@@ -166,7 +166,25 @@ def get_data(email):
     print(data)
     return jsonify(data)
 
+@app.route('/get-prediction/<email>')
+def get_prediction(email):
+    data = []
+    users_ref = firestore.client().collection('users')
+    user = users_ref.where('email', '==', email).get()
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+
+
+    print(user)
+    # for u in user:
+    #     uid = u.id
+    #     collections = users_ref.document(uid).collection(str(datetime.now().year) +
+    #     '-' + str(datetime.now().month) + '-' + str(datetime.now().day)).stream()
+    #     for doc in collections:
+    #         data.append(doc.to_dict())
+    # print(data)
+    # return jsonify(data)
+
 if __name__ == "__main__":
     app.run(debug=True)
-
 
