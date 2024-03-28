@@ -48,7 +48,6 @@ rsa==4.9
 scikit-learn==1.2.2
 scipy==1.10.1
 six==1.16.0
-sklearn==0.0.post1
 studentvue==2.0.5
 threadpoolctl==3.1.0
 tqdm==4.62.3
